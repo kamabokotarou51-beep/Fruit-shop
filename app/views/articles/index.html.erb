@@ -1,0 +1,17 @@
+<h1>投稿一覧</h1>
+
+<!-- フラッシュメッセージの表示（念のため確認） -->
+<% flash.each do |key, message| %>
+  <div class="flash-<%= key %>"><%= message %></div>
+<% end %>
+
+<p><%= link_to "新規投稿する", new_article_path %></p>
+
+<ul>
+  <% @articles.each do |article| %>
+    <li>
+      <!-- タイトルをクリックすると詳細ページへ遷移 -->
+      <%= link_to article.title, article_path(article) %>
+    </li>
+  <% end %>
+</ul>
